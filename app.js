@@ -1,13 +1,44 @@
 const WA = '50575338609';
+const PRODUCTOS_URL = './productos.json';
 
 let admin = false;
 let editando = -1;
 
-let productos = JSON.parse(
-    localStorage.getItem('emilioModa4') || '[]'
-);
+let productos = [];
 
 const productosView = document.getElementById('productos');
+
+function imagenUrl(src) {
+    if (!src) return '';
+    return src.startsWith('data:') ? src : encodeURI(src);
+}
+
+async function cargarProductos() {
+    try {
+        const respuesta = await fetch(PRODUCTOS_URL);
+
+        if (!respuesta.ok) {
+            throw new Error('No se pudo cargar productos.json');
+        }
+
+        const data = await respuesta.json();
+
+        productos = Array.isArray(data) ? data : [];
+
+        if (!productos.length) {
+            const guardados = JSON.parse(
+                localStorage.getItem('emilioModa4') || '[]'
+            );
+            productos = Array.isArray(guardados) ? guardados : [];
+        }
+    } catch (error) {
+        productos = JSON.parse(
+            localStorage.getItem('emilioModa4') || '[]'
+        );
+    }
+
+    render();
+}
 
 function save() {
     localStorage.setItem(
@@ -41,7 +72,7 @@ document.querySelector('header h1').addEventListener('dblclick', () => {
     adminBtn.style.display = 'inline-block';
 
     adminBtn.onclick = () => {
-        if (prompt('Contrasena') === '150919') {
+        if (prompt('Contrasena') === '1234') {
             admin = true;
             mostrarBotonExportar();
             panel.showModal();
@@ -134,7 +165,7 @@ function eliminar(i) {
 
 function verImg(src) {
 
-    imgGrande.src = src;
+    imgGrande.src = imagenUrl(src);
 
     modalImg.style.display = 'block';
 }
@@ -209,7 +240,7 @@ Me interesa este producto:
         <div class="card">
 
            <img
-            src="imagenes/${p.img}"
+            src="${imagenUrl(p.img)}"
             alt="${p.nombre}"
            onclick="verImg(this.src)"
            >
@@ -263,4 +294,4 @@ Me interesa este producto:
 buscar.oninput = render;
 orden.onchange = render;
 
-render();
+cargarProductos();
