@@ -1,1 +1,0 @@
-Las imagenes ahora se cargan desde el panel admin.
