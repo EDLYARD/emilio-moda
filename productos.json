@@ -10,5 +10,11 @@
     "precio": 120,
     "categoria": "Hombre",
     "img": "imagenes/WhatsApp Image 2026-08-29 at 1.04.01 PM.jpeg"
+  },
+  {
+    "nombre": "Pantón Levi's 550 29x30",
+    "precio": 550,
+    "categoria": "Hombre",
+    "img": "Logo2.jpg"
   }
 ]
