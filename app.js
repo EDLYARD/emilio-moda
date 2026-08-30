@@ -101,7 +101,7 @@ function guardarProducto() {
                 nombre: nombre.value,
                 precio: Number(precio.value),
                 categoria: categoria.value,
-                img: f.name
+                img: `imagenes/${f.name}`
             });
 
             save();
@@ -122,7 +122,7 @@ function guardarProducto() {
             r.onload = e => {
 
                 productos[editando].img =
-                    e.target.result;
+                    `imagenes/${f.name}`;
 
                 save();
             };
