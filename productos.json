@@ -1,20 +1,20 @@
 [
   {
-    "nombre": "Camisa H&M Tall a",
-    "precio": 120,
+    "nombre": "Levi's 550 29x30",
+    "precio": 550,
     "categoria": "Hombre",
-    "img": "imagenes/WhatsApp Image 2026-08-29 at 1.04.01 PM (1).jpeg"
+    "img": "imagenes/Levis.jpeg"
   },
   {
-    "nombre": "Camisa Cristian Dior 151/2",
+    "nombre": "Camisa H&M Talla S",
     "precio": 120,
     "categoria": "Hombre",
     "img": "imagenes/WhatsApp Image 2026-08-29 at 1.04.01 PM.jpeg"
   },
   {
-    "nombre": "Levi's 550 29x30",
-    "precio": 550,
+    "nombre": "Camisa Christian Dios Talla 151/2",
+    "precio": 120,
     "categoria": "Hombre",
-    "img": "imagenes/Levis.jpeg"
+    "img": "imagenes/WhatsApp Image 2026-08-29 at 1.04.01 PM (1).jpeg"
   }
 ]
